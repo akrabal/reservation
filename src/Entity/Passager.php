@@ -13,15 +13,11 @@ class Passager
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $numPassager;
 
+   
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -37,10 +33,7 @@ class Passager
      */
     private $adressePhysiquePassager;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+   
 
     public function getNumPassager(): ?string
     {

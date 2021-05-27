@@ -13,24 +13,17 @@ class GareDepart
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $numGare;
+
+    
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $localiteGare;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getNumGare(): ?string
     {

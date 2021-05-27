@@ -13,9 +13,9 @@ class Reservation
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $id;
+    private $numReservation;
 
     /**
      * @ORM\Column(type="datetime")
@@ -27,9 +27,9 @@ class Reservation
      */
     private $statutReservation;
 
-    public function getId(): ?int
+    public function getnumReservation(): ?string
     {
-        return $this->id;
+        return $this->numReservation;
     }
 
     public function getDateReservation(): ?\DateTimeInterface

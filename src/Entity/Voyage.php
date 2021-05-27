@@ -13,14 +13,10 @@ class Voyage
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $numVoyage;
+
 
     /**
      * @ORM\Column(type="datetime")
@@ -37,10 +33,7 @@ class Voyage
      */
     private $statutVoyage;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+  
 
     public function getNumVoyage(): ?string
     {

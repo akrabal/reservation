@@ -13,14 +13,11 @@ class Compagnie
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $numCompagnie;
+
+    
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -32,10 +29,6 @@ class Compagnie
      */
     private $cordonnesCompagnie;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getNumCompagnie(): ?string
     {

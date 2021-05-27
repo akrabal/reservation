@@ -13,9 +13,9 @@ class Client
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $id;
+    private $numclient;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -42,9 +42,9 @@ class Client
      */
     private $adressephysiqueClient;
 
-    public function getId(): ?int
+    public function getnumclient(): ?string
     {
-        return $this->id;
+        return $this->numclient;
     }
 
     public function getNomclient(): ?string

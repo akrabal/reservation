@@ -13,24 +13,17 @@ class Ville
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="string", length=255)
      */
     private $numVille;
 
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $nomVille;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+   
 
     public function getNumVille(): ?string
     {
