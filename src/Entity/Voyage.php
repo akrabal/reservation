@@ -52,6 +52,12 @@ class Voyage
      */
     private $reservations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=compagnie::class, inversedBy="voyages")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="numCompagnie")
+     */
+    private $compagnie;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -157,6 +163,18 @@ class Voyage
                 $reservation->setVoyage(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCompagnie(): ?compagnie
+    {
+        return $this->compagnie;
+    }
+
+    public function setCompagnie(?compagnie $compagnie): self
+    {
+        $this->compagnie = $compagnie;
 
         return $this;
     }
