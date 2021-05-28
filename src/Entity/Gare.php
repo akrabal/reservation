@@ -2,28 +2,35 @@
 
 namespace App\Entity;
 
-use App\Repository\GareDepartRepository;
+use App\Repository\GareRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=GareDepartRepository::class)
+ * @ORM\Entity(repositoryClass=GareRepository::class)
  */
-class GareDepart
+class Gare
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $numGare;
-
-    
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $localiteGare;
+    private $numGare;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $LocaliteGare;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getNumGare(): ?string
     {
@@ -39,12 +46,12 @@ class GareDepart
 
     public function getLocaliteGare(): ?string
     {
-        return $this->localiteGare;
+        return $this->LocaliteGare;
     }
 
-    public function setLocaliteGare(string $localiteGare): self
+    public function setLocaliteGare(string $LocaliteGare): self
     {
-        $this->localiteGare = $localiteGare;
+        $this->LocaliteGare = $LocaliteGare;
 
         return $this;
     }

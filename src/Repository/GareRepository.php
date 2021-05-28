@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\GareDepart;
+use App\Entity\Gare;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method GareDepart|null find($id, $lockMode = null, $lockVersion = null)
- * @method GareDepart|null findOneBy(array $criteria, array $orderBy = null)
- * @method GareDepart[]    findAll()
- * @method GareDepart[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Gare|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Gare|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Gare[]    findAll()
+ * @method Gare[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GareDepartRepository extends ServiceEntityRepository
+class GareRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, GareDepart::class);
+        parent::__construct($registry, Gare::class);
     }
 
     // /**
-    //  * @return GareDepart[] Returns an array of GareDepart objects
+    //  * @return Gare[] Returns an array of Gare objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class GareDepartRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?GareDepart
+    public function findOneBySomeField($value): ?Gare
     {
         return $this->createQueryBuilder('g')
             ->andWhere('g.exampleField = :val')
