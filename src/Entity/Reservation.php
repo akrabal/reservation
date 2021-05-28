@@ -33,6 +33,15 @@ class Reservation
      */
     private $client;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=voyage::class, inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="numVoyage")
+     */
+    private $voyage;
+
+
+    
+
     public function getnumReservation(): ?string
     {
         return $this->numReservation;
@@ -70,6 +79,18 @@ class Reservation
     public function setClient(?client $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getVoyage(): ?voyage
+    {
+        return $this->voyage;
+    }
+
+    public function setVoyage(?voyage $voyage): self
+    {
+        $this->voyage = $voyage;
 
         return $this;
     }

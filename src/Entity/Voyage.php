@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VoyageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -44,6 +46,16 @@ class Voyage
      * @ORM\JoinColumn(nullable=false, referencedColumnName="numGare")
      */
     private $GareArrive;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="voyage", orphanRemoval=true)
+     */
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
   
 
@@ -115,6 +127,36 @@ class Voyage
     public function setGareArrive(?gare $GareArrive): self
     {
         $this->GareArrive = $GareArrive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setVoyage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getVoyage() === $this) {
+                $reservation->setVoyage(null);
+            }
+        }
 
         return $this;
     }
