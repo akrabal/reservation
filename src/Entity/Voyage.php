@@ -33,6 +33,18 @@ class Voyage
      */
     private $statutVoyage;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=gare::class)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="numGare")
+     */
+    private $GareDepart;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=gare::class)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="numGare")
+     */
+    private $GareArrive;
+
   
 
     public function getNumVoyage(): ?string
@@ -79,6 +91,30 @@ class Voyage
     public function setStatutVoyage(bool $statutVoyage): self
     {
         $this->statutVoyage = $statutVoyage;
+
+        return $this;
+    }
+
+    public function getGareDepart(): ?gare
+    {
+        return $this->GareDepart;
+    }
+
+    public function setGareDepart(?gare $GareDepart): self
+    {
+        $this->GareDepart = $GareDepart;
+
+        return $this;
+    }
+
+    public function getGareArrive(): ?gare
+    {
+        return $this->GareArrive;
+    }
+
+    public function setGareArrive(?gare $GareArrive): self
+    {
+        $this->GareArrive = $GareArrive;
 
         return $this;
     }
