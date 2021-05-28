@@ -27,6 +27,12 @@ class Reservation
      */
     private $statutReservation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=client::class, inversedBy="reservations")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="numclient")
+     */
+    private $client;
+
     public function getnumReservation(): ?string
     {
         return $this->numReservation;
@@ -52,6 +58,18 @@ class Reservation
     public function setStatutReservation(bool $statutReservation): self
     {
         $this->statutReservation = $statutReservation;
+
+        return $this;
+    }
+
+    public function getClient(): ?client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?client $client): self
+    {
+        $this->client = $client;
 
         return $this;
     }
